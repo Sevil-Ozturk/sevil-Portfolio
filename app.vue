@@ -14,6 +14,22 @@
 // Burası için görevin sitene temel bir SEO yapılandırması eklemek.
 // https://nuxt.com/docs/getting-started/seo-meta
 // (yaptığın seonun bu aşamada işe yarar olmasına gerek yok, sadece basit bir yapılandırma olması yeterli)
+useHead({
+  title: 'benim portfolyo sayfam',
+  meta: [{
+    name: 'description',
+    content: 'Sevil\'in web portfolio sayfası.',
+  }],
+})
+
+useSeoMeta({
+  title: 'Sevil\'in portfolyo sayfası',
+  ogTitle: 'Sevil\'in portfolyo sayfası',
+  description: 'Benim portfolio sayfama bakmak ister misiniz?, Hadi birlikte bakalım! ',
+  ogDescription: 'Benim portfolio sayfama bakmak ister misiniz?, Hadi birlikte bakalım!',
+  ogImage: 'https://github.com/Sevil-Ozturk.png',
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <template>
