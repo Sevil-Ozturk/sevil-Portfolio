@@ -2,5 +2,12 @@ export interface Todo {
   id: number
   todo: string
   completed: boolean
-  userId: number
+  user: User
+}
+
+export interface User {
+  userid: number
+  picture: string
+  name: string
+
 }

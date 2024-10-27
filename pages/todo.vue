@@ -7,6 +7,7 @@ const todoStore = useTodoStore()
 
 onMounted(async () => {
   await todoStore.fetchTodoList()
+  await todoStore.fetchUserList()
 })
 // GÖREV 2
 // elindeki userId lere göre bu kullanıcıların resimlerini ve isimlerini göstermelisin https://randomuser.me/
@@ -20,7 +21,13 @@ onMounted(async () => {
 <template>
   <NuxtLayout name="default">
     <div class="p-8 text-center 'söz uçar forecolor :D' flex h-full overflow-auto">
-      {{ todoStore.todoList }}
+      <!-- {{ todoStore.todoList }} -->
+      <!-- {{ todo.title}} -->
+      {{ todoStore.userList }}
+      <!-- <div v-for="user in todoStore.userList"> -->
+      <!-- <img :src="user.picture.large" alt="user image"> -->
+      <!-- <h3>{{ user.name }}</h3> -->
+    <!-- </div> -->
     </div>
   </NuxtLayout>
 </template>
