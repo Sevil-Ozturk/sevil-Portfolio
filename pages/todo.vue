@@ -23,7 +23,8 @@ onMounted(async () => {
     <div class="p-8 text-center 'söz uçar forecolor :D' flex h-full overflow-auto">
       <!-- {{ todoStore.todoList }} -->
       <div class="flex flex-wrap w-full h-hull gap-4 justify-center">
-        <UserCard
+        <!-- UserCard olarak değil CarUser olarak çağırmalısın -->
+        <CardUser
           v-for="user in todoStore.userList"
           :key="user.id"
           :user="user"

@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import type { User } from '~/types'
 
+const props = defineProps<{
+  user: User
+}>()// burda başlangıç değeri undefined olması açısından açılan () parantezini unutmuşsun
 const todoStore = useTodoStore()
 const _public = useRuntimeConfig().public
 
 onMounted (async () => {
   await todoStore.fetchUserList()
 })
-const props = defineProps<{
-  user: User
-}>
 </script>
 
 <template>
