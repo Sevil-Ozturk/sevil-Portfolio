@@ -21,7 +21,7 @@ export const useTodoStore = defineStore('todo', () => {
 
   const fetchUserList = async () => {
     try {
-      const { data } = await axios.get('https://randomuser.me/api/?results=10')
+      const { data } = await axios.get('https://randomuser.me/api/?results=200')
       userList.value = data.results
     }
     catch {

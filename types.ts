@@ -6,8 +6,12 @@ export interface Todo {
 }
 
 export interface User {
-  userid: number
+  id: number
   picture: string
-  name: string
+  name: {
+    first: string
+    last: string
+    title: string
+  }
 
 }
