@@ -7,7 +7,11 @@ export interface Todo {
 
 export interface User {
   id: number
-  picture: string
+  picture: {
+    large: string
+    medium: string
+    thumbnail: string
+  }
   name: {
     first: string
     last: string

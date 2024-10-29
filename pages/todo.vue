@@ -22,17 +22,14 @@ onMounted(async () => {
   <NuxtLayout name="default">
     <div class="p-8 text-center 'söz uçar forecolor :D' flex h-full overflow-auto">
       <!-- {{ todoStore.todoList }} -->
-      <!-- {{ todo.title }} -->
+      <div class="flex flex-wrap w-full h-hull gap-4 justify-center">
+        <UserCard
+          v-for="user in todoStore.userList"
+          :key="user.id"
+          :user="user"
+        />
+      </div>
       <!-- {{ todoStore.userList }} -->
-      <!-- <div v-for="user in todoStore.userList"> -->
-      <ol>
-        <li v-for="user in todoStore.userList" :key="user.id">
-          <!-- <img :src="user.picture.large" alt="user image"> -->
-          {{ user.name.first }}-{{ user.name.last }}
-        </li>
-      </ol>
-      <!-- <h3>{{ user.name }}</h3>
-      </div> -->
     </div>
   </NuxtLayout>
 </template>
