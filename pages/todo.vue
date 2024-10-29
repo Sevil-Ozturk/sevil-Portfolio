@@ -29,7 +29,7 @@ onMounted(async () => {
           :user="user"
         />
       </div>
-      <!-- {{ todoStore.userList }} -->
+      {{ todoStore.userList }}
     </div>
   </NuxtLayout>
 </template>

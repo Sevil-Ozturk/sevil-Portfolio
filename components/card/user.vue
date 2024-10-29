@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { User } from '~/types'
+
 const todoStore = useTodoStore()
-const _public = useRuntimeConfig.public
+const _public = useRuntimeConfig().public
 
 onMounted (async () => {
   await todoStore.fetchUserList()
