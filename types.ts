@@ -1,12 +1,16 @@
 export interface Todo {
+  userId: number
   id: number
   todo: string
   completed: boolean
-  user: User
+  user?: User
 }
 
 export interface User {
-  id: number
+  login: {
+    uuid: string
+
+  }
   picture: {
     large: string
     medium: string

@@ -22,15 +22,15 @@ onMounted(async () => {
   <NuxtLayout name="default">
     <div class="p-8 text-center 'söz uçar forecolor :D' flex h-full overflow-auto">
       <!-- {{ todoStore.todoList }} -->
-      <div class="flex flex-wrap w-full h-hull gap-4 justify-center">
-        <!-- UserCard olarak değil CarUser olarak çağırmalısın -->
+      <div class="flex flex-wrap w-full h-full gap-4 justify-center">
         <CardUser
           v-for="user in todoStore.userList"
-          :key="user.id"
+          :key="user.login.uuid"
           :user="user"
-        />
+          class="hover:scale-[1.05]"
+        /><!--  çalışıyorsa ellemiyoruz :D -->
       </div>
-      {{ todoStore.userList }}
+      <!-- {{ todoStore.userList }} -->
     </div>
   </NuxtLayout>
 </template>

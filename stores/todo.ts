@@ -20,12 +20,13 @@ export const useTodoStore = defineStore('todo', () => {
   }
 
   const fetchUserList = async () => {
+    const userResponse = await axios.get('https://randomuser.me/api/?results=200')
     try {
-      const { data } = await axios.get('https://randomuser.me/api/?results=20')
-      userList.value = data.results
+      userList.value = userResponse.data.results
     }
-    catch {
+    catch (error) {
       userList.value = 'error'
+      console.error('User listesi alınırken hata oluştu:', error)
     }
   }
   return {
