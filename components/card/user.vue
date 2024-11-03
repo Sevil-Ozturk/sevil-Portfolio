@@ -13,7 +13,7 @@ const props = defineProps<{
         <img :src="props.user.picture.large" alt="user picture" class="w-64 rounded-full">
       </template>
       <template #footer>
-        {{ props.user.name.first }}''{{ props.user.name.last }}
+        {{ props.user.name.first }} {{ props.user.name.last }}
       </template>
     </Card>
   </div>

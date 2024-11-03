@@ -1,5 +1,5 @@
 export interface Todo {
-  userId: number
+  userId: string
   id: number
   todo: string
   completed: boolean
@@ -7,6 +7,7 @@ export interface Todo {
 }
 
 export interface User {
+  userId: string
   login: {
     uuid: string
 
