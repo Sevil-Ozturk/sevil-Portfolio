@@ -39,8 +39,7 @@ export const useTodoStore = defineStore('todo', () => {
       console.error('User listesi alınırken hata oluştu:', error)
     }
   }
-  // BİRÇOK KAYNAK ARAŞTIRDIM FAKAT BU KISMI NASIL YAPACAĞIMI BULAMADIM... TABİKİİİ CHATCPT DEN YARDIM ALDIM SFVKNFS AMA HATA VERİYOR
-  // SÜREKLİ BİR DE TODO.VUE SAYFAMDA DA HALA BİR HATA VAR ONU DA ÇÖZEMEDİM (USER VE LOGİN ALTI ÇİZİLİ OLAN KISIMDAN BAHSEDİYORUM...)
+
   const mergeUserWithTodo = () => {
     combinedData.value = userList.value.map((user) => {
       const assignedTodo = todoList.value.find(todo => todo.userId === user.userId) || null
