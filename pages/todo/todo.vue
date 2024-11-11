@@ -6,10 +6,15 @@ definePageMeta({
 const todoStore = useTodoStore()
 
 onMounted(async () => {
-  // await todoStore.fetchTodoList()
-  // await todoStore.fetchUserList()
   await todoStore.fetchDataList()
 })
+
+function gotoTodoDetail(id: string) {
+  navigateTo({
+    name: 'todoDetail',
+    params: { id },
+  })
+}
 // GÖREV 2
 // elindeki userId lere göre bu kullanıcıların resimlerini ve isimlerini göstermelisin https://randomuser.me/
 // bunun için Todo tipini değiştirmen gerekecek yeni tipte nasıl bir yapı izleyeceğin çok önemli.
@@ -21,8 +26,8 @@ onMounted(async () => {
 
 <template>
   <NuxtLayout name="default">
-    <div class="w-full h-full flex justify-center items-center p-8">
-      <div class="flex p-4 flex-col gap-2 w-7/12 h-4/6 overflow-auto border rounded dark:border-gray-700 border-gray-300">
+    <div class="w-full h-full flex justify-center items-center">
+      <div class="flex flex-col gap-2 w-7/12 h-4/6 overflow-auto border rounded dark:border-gray-700 border-gray-300 w-full h-full">
         <div
           v-for="(data, index) in todoStore.dataList" :key="index"
           class="w-full flex justify-between items-center py-2 px-3 border-b"
@@ -32,12 +37,16 @@ onMounted(async () => {
             <label> {{ `${data.name.first} ${data.name.last}` }} </label>
           </div>
           <label> {{ `${data.todos.length} adet görev mevcut` }} </label>
+          <UButton
+            label="detay gör"
+            @click="gotoTodoDetail"
+          />
         </div>
       </div>
     </div>
   </NuxtLayout>
 
-  <div v-if="todoStore.dataList.length !== 40" class="z-50 flex justify-center items-center fixed w-screen h-screen bg-gray-950/75">
+  <!-- <div v-if="todoStore.dataList.length !== 40" class="z-50 flex justify-center items-center fixed w-screen h-screen bg-gray-950/75">
     <div class="w-8 h-8 border animate-spin" />
-  </div>
+  </div> -->
 </template>

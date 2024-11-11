@@ -1,30 +1,3 @@
-// export interface Todo {
-//   userId: string
-//   id: number
-//   todo: string
-//   completed: boolean
-//   user?: User
-// }
-
-// export interface User {
-//   userId: string
-//   login: {
-//     uuid: string
-
-//   }
-//   picture: {
-//     large: string
-//     medium: string
-//     thumbnail: string
-//   }
-//   name: {
-//     first: string
-//     last: string
-//     title: string
-//   }
-
-// }
-
 export type Data = User & { todos: Todo[] }
 
 export interface Todo {
@@ -35,6 +8,11 @@ export interface Todo {
 }
 
 export interface User {
+  id: string
+  // id: {
+  //   name: string
+  //   value: string
+  // }
   gender: 'male' | 'female'
   name: {
     title: string
@@ -79,10 +57,6 @@ export interface User {
   }
   phone: string
   cell: string
-  id: {
-    name: string
-    value: string
-  }
   picture: {
     large: string
     medium: string
