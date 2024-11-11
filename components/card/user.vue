@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import type { User } from '~/types'
 
 const props = defineProps<{
@@ -21,4 +21,5 @@ const props = defineProps<{
 
 <style>
 
-</style>
+</style> -->
+<!-- kullanım dışı -->
