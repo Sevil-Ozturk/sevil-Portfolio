@@ -2,7 +2,8 @@ export type Data = User & { todos: Todo[] }
 
 export interface Todo {
   userId: number
-  id: number
+  id: string
+  // id: number
   title: string
   completed: boolean
 }

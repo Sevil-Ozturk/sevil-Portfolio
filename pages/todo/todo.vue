@@ -10,10 +10,7 @@ onMounted(async () => {
 })
 
 function gotoTodoDetail(id: string) {
-  navigateTo({
-    name: 'todoDetail',
-    params: { id },
-  })
+  navigateTo(`/todo/${id}`)
 }
 // GÖREV 2
 // elindeki userId lere göre bu kullanıcıların resimlerini ve isimlerini göstermelisin https://randomuser.me/
@@ -31,16 +28,13 @@ function gotoTodoDetail(id: string) {
         <div
           v-for="(data, index) in todoStore.dataList" :key="index"
           class="w-full flex justify-between items-center py-2 px-3 border-b"
+          @click="gotoTodoDetail(data.login.uuid)"
         >
           <div class="flex gap-4 items-center">
             <img :src="data.picture.thumbnail" class="rounded-full">
             <label> {{ `${data.name.first} ${data.name.last}` }} </label>
           </div>
           <label> {{ `${data.todos.length} adet görev mevcut` }} </label>
-          <UButton
-            label="detay gör"
-            @click="gotoTodoDetail"
-          />
         </div>
       </div>
     </div>
