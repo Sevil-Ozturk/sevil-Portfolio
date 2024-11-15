@@ -14,10 +14,22 @@ export const useTodoStore = defineStore('todo', () => {
 
   const dataList = ref<Data[]>([])
 
+  const saveToLocalStorage = () => {
+    localStorage.setItem('TodoDataList', JSON.stringify(dataList.value))
+  }
+
+  const loadFromLocalStorage = () => {
+    const storageData = localStorage.getItem('TodoDataList')
+    if (storageData) {
+      dataList.value = JSON.parse(storageData)
+    }
+  }
   const fetchDataList = async () => {
     // const _todoList: Todo[] = []
     // const _userList: User[] = []
-
+    loadFromLocalStorage()
+    if (loadFromLocalStorage.length > 0)
+      return
     await fetch('https://randomuser.me/api/?results=40')
       .then(_response => _response.json())
       .then((_response) => {
@@ -31,6 +43,7 @@ export const useTodoStore = defineStore('todo', () => {
               dataList.value.push({ ...user, todos: limitedTodos })
             })
         })
+        saveToLocalStorage()
       })
 
     // await fetch('https://jsonplaceholder.typicode.com/todos')
@@ -41,5 +54,8 @@ export const useTodoStore = defineStore('todo', () => {
   return {
     dataList,
     fetchDataList,
+    saveToLocalStorage,
+    loadFromLocalStorage,
+
   }
 })
