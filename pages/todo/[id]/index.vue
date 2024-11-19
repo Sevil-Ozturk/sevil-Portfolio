@@ -26,12 +26,21 @@ const userTodos = computed(() => {
       <div class="w-[350px] h-full justify-items-center p-5 text-xl">
         <img :src="userTodos?.picture.large" class="rounded-full w-48 h-48 border-sky-400">
         <h2>{{ userTodos?.name.first }} {{ userTodos?.name.last }}</h2>
-        <div class="p-2">
-          <!-- <h2>Bilgiler</h2> -->
-          Cinsiyet: {{ userTodos.gender }}<br>
-          Yaş: {{ userTodos.dob.age }}<br>
-          Doğum Tarihi: {{ userTodos.dob.date }}<br>
-          Konum: {{ userTodos.location.street.number }}-{{ userTodos.location.street.name }}-{{ userTodos.location.city }}-{{ userTodos.location.state }}-{{ userTodos.location.country }}<br>
+        <div class="p-2 border-5">
+          <h2 class="mb-3 text-xl font-bold text-[red]">
+            Kullanıcı Bilgileri
+          </h2>
+          <p><span class="font-medium">Cinsiyet:</span> {{ userTodos.gender }}</p>
+          <p><span class="font-medium">Yaş:</span> {{ userTodos.dob.age }}</p>
+          <p><span class="font-medium">Doğum Tarihi:</span> {{ new Date(userTodos.dob.date).toLocaleDateString() }}</p>
+          <p>
+            <span class="font-medium">Konum:</span>
+            {{ userTodos.location.street.number }}
+            {{ userTodos.location.street.name }},
+            {{ userTodos.location.city }},
+            {{ userTodos.location.state }},
+            {{ userTodos.location.country }}
+          </p>
         </div>
       </div>
 
