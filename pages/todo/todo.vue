@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Avatar } from '#ui/types'
+
 definePageMeta({
   name: 'todo',
 })
@@ -38,6 +40,10 @@ function gotoTodoDetail(id: string) {
               label: `${user.name.first} ${user.name.last}`,
               avatar: user.picture.thumbnail,
             }))"
+          searchable-placeholder="Search a person..."
+          placeholder="Select a person"
+          searchable
+          clear-search-on-close
         >
           <!-- <UAvatar v-if="selected?.avatar" :src="selected.avatar" size="2xs" /> -->
         </USelectMenu>

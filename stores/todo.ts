@@ -13,7 +13,6 @@ export const useTodoStore = defineStore('todo', () => {
   // eğer fetch işleminde hata meydana geldi durumunu da veri üzerinden ele almak istiyorsan todoListin tipini <Todo[] | 'error'> yaparak catch durumunda 'error' stringini atayabilirsin.
 
   const dataList = ref<Data[]>([])
-  // const selectedUserId = ref<string | undefined>(undefined)
 
   const saveToLocalStorage = () => {
     localStorage.setItem('TodoDataList', JSON.stringify(dataList.value))
@@ -51,14 +50,6 @@ export const useTodoStore = defineStore('todo', () => {
     //   .then(_response => _response.json())
     //   .then((_data) => { _todoList.push(..._data) })
   }
-
-  // // Filtreleme Fonksiyonu
-  // const filteredData = computed(() => {
-  //   if (selectedUserId.value) {
-  //     return dataList.value.filter(data => data.login.uuid === selectedUserId.value)
-  //   }
-  //   return dataList.value
-  // })
 
   return {
     dataList,
