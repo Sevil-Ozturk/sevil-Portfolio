@@ -38,7 +38,7 @@ function gotoTodoDetail(id: string) {
           :options="todoStore.dataList.map(user =>
             ({
               label: `${user.name.first} ${user.name.last}`,
-              avatar: user.picture.thumbnail,
+              avatar: { src: user.picture.thumbnail },
             }))"
           searchable-placeholder="Search a person..."
           placeholder="Select a person"
