@@ -1,15 +1,16 @@
 <script setup lang="ts">
 const todoStore = useTodoStore()
 const route = useRoute()
+
 definePageMeta({
   name: 'todoDetail',
 })
+const todoId = String(route.params.id)
+
 onMounted(async () => {
   await todoStore.fetchDataList()
-  todoStore.loadFromLocalStorage()
 })
 
-const todoId = String(route.params.id)
 const userTodos = computed(() => {
   return todoStore.dataList.find(data => data.login.uuid === todoId)
 })
@@ -60,6 +61,10 @@ const userTodos = computed(() => {
         </div>
       </div>
     </div>
+  </div>
+
+  <div v-else>
+    <p> Kullanıcı bilgileri yüklenemedi veya kullanıcı bulunamadı.</p>
   </div>
 </template>
 

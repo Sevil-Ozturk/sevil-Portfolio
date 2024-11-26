@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Avatar } from '#ui/types'
+import SelectMenu from '~/components/todo/selectMenu.vue'
 
 definePageMeta({
   name: 'todo',
@@ -15,10 +16,6 @@ function gotoTodoDetail(id: string) {
   navigateTo(`/todo/${id}`)
 }
 
-// const selectedUser =
-
-// const selected = ref(selectedUser[0])
-
 // GÖREV 2
 // elindeki userId lere göre bu kullanıcıların resimlerini ve isimlerini göstermelisin https://randomuser.me/
 // bunun için Todo tipini değiştirmen gerekecek yeni tipte nasıl bir yapı izleyeceğin çok önemli.
@@ -31,23 +28,12 @@ function gotoTodoDetail(id: string) {
 <template>
   <NuxtLayout name="default">
     <div
-      class="flex w-full h-full flex justify-center items-center"
+      class="flex flex-col w-full h-full flex justify-center items-center"
     >
-      <div class="size-64">
-        <USelectMenu
-          :options="todoStore.dataList.map(user =>
-            ({
-              label: `${user.name.first} ${user.name.last}`,
-              avatar: { src: user.picture.thumbnail },
-            }))"
-          searchable-placeholder="Search a person..."
-          placeholder="Select a person"
-          searchable
-          clear-search-on-close
-        >
-          <!-- <UAvatar v-if="selected?.avatar" :src="selected.avatar" size="2xs" /> -->
-        </USelectMenu>
+      <div class="gap-3 p-3">
+        <SelectMenu />
       </div>
+
       <div class="flex flex-col gap-2 w-7/12 h-4/6 overflow-auto border rounded dark:border-gray-700 border-gray-300 w-full h-full">
         <div
           v-for="(data, index) in todoStore.dataList" :key="index"
