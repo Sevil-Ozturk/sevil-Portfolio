@@ -1,22 +1,27 @@
 <script setup lang="ts">
 const todoStore = useTodoStore()
-const route = useRoute()
+// const route = useRoute()
+const router = useRouter()
 
 definePageMeta({
   name: 'todoDetail',
 })
-const todoId = String(route.params.id)
+
+const paramid = computed(() => router.currentRoute.value.params.id)
+
+// const todoId = String(route.params.id)
+
+const userTodos = computed(() => {
+  return todoStore.dataList.find(data => data.login.uuid === paramid.value)
+})
 
 onMounted(async () => {
   await todoStore.fetchDataList()
 })
-
-const userTodos = computed(() => {
-  return todoStore.dataList.find(data => data.login.uuid === todoId)
-})
 </script>
 
 <template>
+  {{ userTodos }}
   <div
     v-if="userTodos" class="fixed top-0 left-0 w-full h-full p-8
     bg-gradient-to-r from-orange-400 via-purple-500 to-green-500
